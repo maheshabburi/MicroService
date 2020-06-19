@@ -1,0 +1,42 @@
+<div>
+<div id='chart-container' style="background-color: white">
+  <h1>Bubble Chart</h1>
+              <oj-chart
+                  id="mychart"
+                  type="bubble"
+                  data="[[dataProvider]]"
+                  animation-on-display="auto"
+                  animation-on-data-change="auto"
+                  hover-behavior="dim"
+                  style="max-width:500px;width:100%;height:350px;background-color: white">
+          
+                  <template slot='itemTemplate' data-oj-as='item'>
+                      <oj-chart-item 
+                        x='[[item.data.x]]'
+                        y='[[item.data.y]]'
+                        z='[[item.data.z]]'
+                        group-id='[[ [item.data.group] ]]' 
+                        series-id='[[item.data.series]]'> 
+                      </oj-chart-item>
+                  </template>
+              </oj-chart>
+              <a href="#" class="button" id="foo">Download</a>
+          </div>
+
+<script type="text/javascript" src="js/dom-to-image/dist/dom-to-image.min.js"></script>
+    <script type="text/javascript">
+           // var domtoimage = require('dom-to-image');
+var node = document.getElementById('mychart');
+//console.log(domtoimage);
+var btn = document.getElementById('foo');
+btn.onclick = function() {
+domtoimage.toPng(node, { quality: 1 }, {bgcolor: '#F5F4FA'})
+    .then(function (dataUrl) {
+        var link = document.createElement('a');
+        link.download = 'my-image-name.png';
+        link.href = dataUrl;
+        link.click();
+    });
+};
+    </script>
+  </div>

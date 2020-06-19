@@ -1,0 +1,51 @@
+   <div id="treeviews">
+            <div style="float:left;">
+              <fieldset style="border:1px #b0b0b0 solid; min-width:240px;">
+                <legend style="border:1px #b0b0b0 solid; margin-left: 1em; padding:0.2em 0.8em">Drag Sources</legend>
+          
+                <div>
+                  <div id="dragdiv1" draggable="true" style="background:#f3a0bf; float:left; width:50px; height:30px; border:1px solid rgb(176,76,176); cursor:pointer; margin:5px 10px 10px; text-align:center; vertical-align:middle; line-height:30px;">Tools</div>
+                  <div id="dragdiv2" draggable="true" style="background:#f3a0bf; float:left; width:50px; height:30px; border:1px solid rgb(176,76,176); cursor:pointer; margin:5px 10px 10px; text-align:center; vertical-align:middle; line-height:30px;">Apps</div>
+                  <div id="dragdiv3" draggable="true" style="background:#f3a0bf; float:left; width:50px; height:30px; border:1px solid rgb(176,76,176); cursor:pointer; margin:5px 10px 10px; text-align:center; vertical-align:middle; line-height:30px;">Logs</div>
+                </div>
+                <br style="clear:both">
+          
+                <div style="float:left;">
+                  <oj-tree-view id="treeviewDrag"
+                                selection-mode="multiple"
+                                selected="{{selected}}"
+                                data="[[data1]]"
+                                dnd.drag.items.data-types='["application/ojtreeviewitems+json"]'
+                                dnd.drag.items.drag-end="[[handleDragEnd]]"
+                                aria-label="Tree View Drag Source">
+                    <template slot="itemTemplate" data-oj-as="row">
+                      <span class="oj-treeview-item-icon"></span>
+                      <span class="oj-treeview-item-text">
+                        <oj-bind-text value="[[row.data.title]]"></oj-bind-text>
+                      </span>
+                    </template>
+                  </oj-tree-view>
+                </div>
+              </fieldset>
+            </div>
+          
+            <div style="float:left;margin-left:20px;">
+              <fieldset style="border:1px #b0b0b0 solid;  min-width:240px;">
+                <legend style="border:1px #b0b0b0 solid; margin-left: 1em; padding:0.2em 0.8em">Drop Target</legend>
+          
+                <oj-tree-view id="treeviewDrop"
+                              selection-mode="multiple"
+                              data="[[data2]]"
+                              dnd.drop.items.data-types='["application/ojtreeviewitems+json", "dragdiv/text"]'
+                              dnd.drop.items.drop="[[handleDrop]]"
+                              aria-label="Tree View Drop Target">
+                  <template slot="itemTemplate" data-oj-as="row">
+                    <span class="oj-treeview-item-icon"></span>
+                    <span class="oj-treeview-item-text">
+                      <oj-bind-text value="[[row.data.title]]"></oj-bind-text>
+                    </span>
+                  </template>
+                </oj-tree-view>
+              </fieldset>
+            </div>
+          </div>

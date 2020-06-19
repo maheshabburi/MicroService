@@ -1,0 +1,88 @@
+{
+            "author": [
+                {
+                    "label": "Abdul Kalam",
+                    "value": "akalam"
+                },
+                {
+                    "label": "Amish Tripathi",
+                    "value": "atripathi"
+                },
+                {
+                    "label": "J K Rowling",
+                    "value": "jkrowling"
+                }
+            ],
+            "genre": [
+                {
+                    "label": "Fiction",
+                    "value": "fiction"
+                },
+                {
+                    "label": "Horror",
+                    "value": "horror"
+                },
+                {
+                    "label": "Comedy",
+                    "value": "comedy"
+                },
+                {
+                    "label": "Motivation",
+                    "value": "motivation"
+                }
+            ],
+            "timeZone": [
+                {
+                    "label": "Default",
+                    "value": "Default"
+                },
+                {
+                    "label": "IST",
+                    "value": "IST",
+                    "country": "India"
+                },
+                {
+                    "label": "EDT",
+                    "value": "EDT",
+                    "country": "America"
+                }
+            ],
+            "sortBy": [
+                {
+                    "label": "New and Popular",
+                    "value": "default",
+                    "direction": "ascending",
+                    "key": "ID"
+                },
+                {
+                    "label": "Price:Low to High",
+                    "value": "lh",
+                    "direction": "ascending",
+                    "key": "PRICE"
+                },
+                {
+                    "label": "Price:High to Low",
+                    "value": "hl",
+                    "direction": "descending",
+                    "key": "PRICE"
+                },
+                {
+                    "label": "Most Reviews",
+                    "value": "reviews",
+                    "direction": "descending",
+                    "key": "REVIEWS"
+                },
+                {
+                    "label": "Publication Date",
+                    "value": "date",
+                    "direction": "ascending",
+                    "key": "PUBLISH_DATE"
+                },
+                {
+                    "label": "My Favorites",
+                    "value": "favorites",
+                    "direction": "descending",
+                    "key": "StarValue"
+                }
+            ]
+        }

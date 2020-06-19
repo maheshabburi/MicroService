@@ -1,0 +1,94 @@
+{
+    "user1": {
+        "name": "mahesh",
+        "password": "password1"
+    },
+    "user2": {
+        "name": "suresh",
+        "password": "password2"
+    },
+    "user3": {
+        "name": "ramesh",
+        "password": "password3"
+    },
+    "user4": {
+        "name": "mohit",
+        "password": "password4"
+    },
+    "mahi": {
+        "name": "mahesh",
+        "password": "123"
+    },
+    "rocky": {
+        "name": "Rakesh",
+        "password": "123"
+    },
+    "user5": {
+        "name": "It's me",
+        "password": "123"
+    },
+    "mahesh": {
+        "name": "Mahesh Abburi",
+        "password": "123"
+    },
+    "bharat": {
+        "name": "Bharat",
+        "password": "123"
+    },
+    "surya": {
+        "name": "surya kiran",
+        "password": "123"
+    },
+    "karan": {
+        "name": "karan H",
+        "password": "123"
+    },
+    "micky": {
+        "name": "Michael",
+        "password": "123"
+    },
+    "Ravi": {
+        "name": "Ravi K",
+        "password": "123"
+    },
+    "pavan": {
+        "name": "pavan K",
+        "password": "123"
+    },
+    "kk": {
+        "name": "kk",
+        "password": "123"
+    },
+    "mad": {
+        "name": "mad",
+        "password": "123"
+    },
+    "mac": {
+        "name": "mac",
+        "password": "123"
+    },
+    "harsh": {
+        "name": "Harshit",
+        "password": "123"
+    },
+    "roy": {
+        "name": "Kumar Roy",
+        "password": "123"
+    },
+    "ping": {
+        "name": "Xin Ping",
+        "password": "123"
+    },
+    "user99": {
+        "name": "Wunich when",
+        "password": "123"
+    },
+    "hari": {
+        "name": "Hari",
+        "password": "123"
+    },
+    "user3000": {
+        "name": "userrrr",
+        "password": "123"
+    }
+}

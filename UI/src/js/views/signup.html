@@ -1,0 +1,30 @@
+<div class="oj-hybrid-padding">
+        <h1>Login Content Area</h1>
+          <div id="sampleDemo" style="" class="demo-container">
+            <div id="componentDemoContent" style="width: 1px; min-width: 100%;">
+              <div id="form-container" class="oj-form-layout">
+                <div class="oj-form">
+                  <div class="oj-flex">  
+                    <div class="oj-flex-item">
+                      <oj-label show-required for="username">User Name</oj-label>
+                      <oj-input-text id="username" required value="{{username}}"></oj-input-text>
+                    </div>
+                  </div>
+                  <div class="oj-flex">  
+                    <div class="oj-flex-item">
+                      <oj-label show-required for="fullname">Full Name</oj-label>
+                      <oj-input-text id="fullname" required value="{{fullname}}"></oj-input-text>
+                    </div>
+                  </div>
+                  <div class="oj-flex">  
+                    <div class="oj-flex-item">
+                      <oj-label for="password" show-required>Password</oj-label>
+                      <oj-input-password id="password" required value="{{password}}"></oj-input-password>
+                    </div>
+                  </div>
+                </div>
+                <oj-button id='submit' on-click='[[doSignup]]'>Sign Up</oj-button>
+              </div>              
+            </div>
+    </div>
+  </div>

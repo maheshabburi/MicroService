@@ -1,0 +1,122 @@
+  [
+      {
+          "ID": "100",
+          "TITLE": "Java: A Beginner's Guide",
+          "AUTHOR": "Herbert Schildt",
+          "PUBLISH_DATE": "2014-04-15",
+          "PRICE": 40.00,
+          "RATING": 4.5,
+          "IMAGE_URL": "/css/images/book1.jfif",
+          "REVIEWS": 37
+      },
+      {
+          "ID": "101",
+          "TITLE": "Java: The Complete Reference",
+          "AUTHOR": "Herbert Schildt",
+          "PUBLISH_DATE": "2014-03-11",
+          "PRICE": 60.00,
+          "RATING": 4.5,
+          "IMAGE_URL": "/css/images/book2.jfif",
+          "REVIEWS": 27
+      },
+      {
+          "ID": "102",
+          "TITLE": "Iron-Clad Java: Building Secure Web Applications",
+          "AUTHOR": "Jim Manico",
+          "PUBLISH_DATE": "2014-09-12",
+          "PRICE": 40.00,
+          "RATING": 5,
+          "IMAGE_URL": "/css/images/book3.jfif",
+          "REVIEWS": 9
+      },
+      {
+          "ID": "103",
+          "TITLE": "Mastering Lambdas: Java Programming in a Multicore World",
+          "AUTHOR": "Maurice Naftalin",
+          "PUBLISH_DATE": "2014-10-13",
+          "PRICE": 40.00,
+          "RATING": 5,
+          "IMAGE_URL": "/css/images/book4.jfif",
+          "REVIEWS": 4
+      },
+      {
+          "ID": "104",
+          "TITLE": "Java EE and HTML5 Enterprise Application Development",
+          "AUTHOR": "John Brock",
+          "PUBLISH_DATE": "2014-03-25",
+          "PRICE": 35.00,
+          "RATING": 4,
+          "IMAGE_URL": "/css/images/book5.jfif",
+          "REVIEWS": 9
+      },
+      {
+          "ID": "105",
+          "TITLE": "Java EE 7: The Big Picture",
+          "AUTHOR": "Danny Coward",
+          "PUBLISH_DATE": "2014-10-01",
+          "PRICE": 50.00,
+          "RATING": 4,
+          "IMAGE_URL": "/css/images/book6.jfif",
+          "REVIEWS": 1
+      },
+      {
+          "ID": "106",
+          "TITLE": "Oracle Fusion Middleware 11g Architecture and Management",
+          "AUTHOR": "Reza Shafii",
+          "PUBLISH_DATE": "2011-06-06",
+          "PRICE": 60.00,
+          "RATING": 4.5,
+          "IMAGE_URL": "/css/images/book7.jfif",
+          "REVIEWS": 7
+      },
+      {
+          "ID": "107",
+          "TITLE": "Mastering JavaFX 8 Controls",
+          "AUTHOR": "Hendrik Ebbers",
+          "PUBLISH_DATE": "2014-07-07",
+          "PRICE": 35.00,
+          "RATING": 4,
+          "IMAGE_URL": "/css/images/book8.jfif",
+          "REVIEWS": 10
+      },
+      {
+          "ID": "108",
+          "TITLE": "Java WebSocket Programming",
+          "AUTHOR": "Danny Coward",
+          "PUBLISH_DATE": "2013-09-18",
+          "PRICE": 40.00,
+          "RATING": 4,
+          "IMAGE_URL": "/css/images/book9.jfif",
+          "REVIEWS": 9
+      },
+      {
+          "ID": "109",
+          "TITLE": "Oracle Fusion Developer Guide: Buidling Rich Internet Applications with Oracle ADF Business Components",
+          "AUTHOR": "Frank Nimphius",
+          "PUBLISH_DATE": "2009-12-11",
+          "PRICE": 65.00,
+          "RATING": 3.5,
+          "IMAGE_URL": "/css/images/book10.jfif",
+          "REVIEWS": 9
+      },
+      {
+          "ID": "110",
+          "TITLE": "Designing an IAM Framework with Oracle Identity and Access Management",
+          "AUTHOR": "Jeff Scheidel",
+          "PUBLISH_DATE": "2010-07-26",
+          "PRICE": 49.99,
+          "RATING": 4,
+          "IMAGE_URL": "/css/images/book11.jfif",
+          "REVIEWS": 9
+      },
+      {
+          "ID": "111",
+          "TITLE": "Java Programming",
+          "AUTHOR": "Poornachandra Sarang",
+          "PUBLISH_DATE": "2012-01-20",
+          "PRICE": 50.00,
+          "RATING": 4,
+          "IMAGE_URL": "/css/images/book.png",
+          "REVIEWS": 15
+      }
+  ]

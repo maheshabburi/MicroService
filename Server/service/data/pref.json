@@ -1,0 +1,78 @@
+{
+    "mahesh": {
+        "tech": {
+            "stars": [
+                "102"
+            ],
+            "sortBy": "hl",
+            "author": [
+                "jmanico",
+                "jbrock"
+            ]
+        },
+        "others": {
+            "timeZone": "EDT",
+            "stars": [
+                "N103",
+                "N105"
+            ],
+            "author": [
+                "atripathi",
+                "jkrowling"
+            ],
+            "genre": [
+                "fiction"
+            ]
+        }
+    },
+    "user1": {
+        "others": {
+            "author": [
+                "atripathi"
+            ],
+            "sortBy": "lh"
+        },
+        "tech": {
+            "author": [
+                "jmanico"
+            ],
+            "stars": [
+                "102"
+            ]
+        }
+    },
+    "hari": {
+        "tech": {
+            "sortBy": "favorites",
+            "author": [
+                "jbrock"
+            ]
+        },
+        "others": {
+            "author": [
+                "atripathi"
+            ]
+        }
+    },
+    "user3000": {
+        "tech": {
+            "author": [
+                "jbrock",
+                "mnaftalin"
+            ],
+            "stars": [
+                "103"
+            ]
+        },
+        "others": {
+            "sortBy": "lh",
+            "timeZone": "IST",
+            "author": [
+                "akalam"
+            ],
+            "stars": [
+                "N100"
+            ]
+        }
+    }
+}

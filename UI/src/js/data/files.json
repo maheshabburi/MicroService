@@ -1,0 +1,68 @@
+  [
+       {"attr": {"id": "home",
+  			   "name": "Home"
+  			  }
+  	 },
+  	 {"attr": {"id": "book",
+  			   "name": "Book"
+  			  },
+  	   "children": [
+  			 {"attr": {"id": "tech",
+  					   "name": "Technical Books"
+  					  }
+  			 },
+         {"attr": {"id": "others",
+               "name": "Other Books"
+              }
+         }
+  		 ]
+  	 },
+  	 {"attr": {"id": "Components",
+  			   "name": "Components"
+  			  },
+  	   "children": [
+  			 {"attr": {"id": "trees",
+  					   "name": "Trees"
+  					  },
+              "children":[
+                  {
+                    "attr":{
+                      "id":"treeview",
+                      "name":"TreeView"
+                    }
+                  }
+              ]
+  			 },
+         {"attr": {"id": "upload",
+               "name": "Upload"
+              },
+              "children":[
+                {
+                  "attr":{
+                    "id":"dragDrop",
+                    "name":"dragDrop"
+                  }
+                }
+              ]
+         },
+         {
+          "attr":{
+            "id":"graphs",
+            "name":"Graphs"
+          },
+          "children":[
+            {
+              "attr":{
+                "id":"chart",
+                "name":"Chart"
+              }
+            }
+          ]
+         }
+  		 ]
+  	 },
+        {"attr": {"id": "settings",
+               "name": "Settings"
+              }
+         }
+  ]

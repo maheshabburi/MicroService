@@ -1,0 +1,103 @@
+<div class="oj-hybrid-padding">
+                      <div id="root">
+            <div class="oj-flex">
+              <div class="oj-lg-2 oj-md-3 oj-sm-only-hide oj-flex-item" >    
+          
+                <div class="refined">Refined by</div>
+          
+                
+          
+                <oj-label id="author_filter_lbl">Author</oj-label>
+                <oj-checkboxset id="author_filter"
+                    value="{{currentAuthor}}" style="padding-bottom: 15px" on-value-changed="[[handleAuthorChanged]]" options="{{authorDataProvider}}">
+                </oj-checkboxset>
+          
+                <oj-button chroming="full" on-oj-action="[[savePref]]">Save My Preferences</oj-button>
+          
+              </div>
+              <div class="oj-lg-10 oj-md-9 oj-sm-12 oj-flex-item">    
+          
+                <div class="oj-flex">
+                  <div class="oj-lg-6 oj-md-6 oj-sm-12 oj-flex-item">
+          
+                    <oj-label for="sortBy" class="oj-label-inline">Sort by:</oj-label>
+                    <oj-select-one id="sortBy" value="{{currentSort}}" style="max-width:11em" on-value-changed="[[handleSortCriteriaChanged]]" options="{{sortByDataProvider}}">
+                    </oj-select-one>
+          
+                  </div>
+                  
+                </div>
+                <oj-list-view id="listview" aria-label="list with external sort and filter controls" style="width:100%"
+                     data="[[dataProvider]]" selection-mode="single">
+                    <template slot="itemTemplate" data-oj-as="item">
+                        <div class="oj-flex">
+                            <div class="oj-lg-3 oj-md-3 oj-sm-4 oj-flex-item" style="max-width:150px;padding-left:0;padding-right:10px">
+                                <div data-bind="style: { backgroundImage: 'url('+ item.data.IMAGE_URL +')', 
+                                     backgroundRepeat: 'no-repeat', backgroundSize: '100%', backgroundPosition: 'center', 
+                                     height: '172px', width: '100%' }">
+                                </div>
+                            </div>
+                            <div class="oj-lg-9 oj-md-9 oj-sm-8 oj-flex-item">
+                                <div class="oj-flex">
+                                    <div class="oj-lg-9 oj-md-9 oj-sm-12 oj-flex-item">
+                                        <div>
+                                            <div><h4><a href="#"><oj-bind-text value="[[item.data.TITLE]]"></oj-bind-text></a></h4></div>
+                                        </div>
+                                        <div>
+                                            <div><span>By <a href="#"><oj-bind-text value="[[item.data.AUTHOR]]"></oj-bind-text></a></span></div>
+                                        </div>
+          
+                                        <div class="oj-flex">
+                                            <div class="oj-lg-12 oj-md-12 oj-sm-only-hide oj-flex-item" style="padding:0">
+                                                <div class="sku-model">
+                                                    <ul>
+                                                        <li><span class="label">SKU:</span> <span><oj-bind-text value="[[item.data.ID]]"></oj-bind-text></span></li>
+                                                        <li><span class="label">Release Date:</span> <span><oj-bind-text value="[[item.data.PUBLISH_DATE]]"></oj-bind-text></span></li>
+                                                        <li><span class="label">Format:</span> <span>Paperback</span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="oj-flex">
+                                            <div class="oj-lg-12 oj-md-12 oj-sm-12 oj-flex-item" style="padding:0">
+                                                <div style="width:100%">
+                                                    <oj-rating-gauge value="[[item.data.RATING]]" readonly style="width:86px;height:20px;display:inline-block;vertical-align:text-bottom">
+                                                    </oj-rating-gauge>
+                                                    <span><oj-bind-text value="[[item.data.RATING]]"></oj-bind-text></span>
+                                                    <span>(<a href="#" class="tab-link"><oj-bind-text value="[[item.data.REVIEWS]]"></oj-bind-text> Reviews</a>)</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="oj-flex">
+                                            <div class="oj-lg-12 oj-md-12 oj-sm-only-hide oj-flex-item" style="padding:10px 0">
+                                                <a class="sku-model" href="#">Check Shipping &amp; Availability</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="oj-flex-item">
+                                        <div>
+                                            <div class="price-block">
+                                                <div class="priceblock priceblock-medium">
+                                                    <div class="medium-item-price">
+                                                      <span class="denominator"><oj-bind-text value="[[currencyConverter.format(item.data.PRICE)]]"></oj-bind-text></span>
+                                                    </div>
+
+                                                </div>
+                                            </div>                                             
+                                        </div>
+                                    </div>
+                                    <div class="oj-flex-item" >
+                                      <div class="fa fa_custom">
+                                             <oj-button style="height: 100%;width: 100%" :id="[[item.data.ID]]" chroming="half"   data-bind="{css:{'fa-star':item.data.StarValue==1,'fa-star-o':item.data.StarValue==0}}" on-oj-action="[[toggle]]"></oj-button>
+                                           </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </oj-list-view>
+                
+              </div>
+           </div>
+          </div>
+</div>

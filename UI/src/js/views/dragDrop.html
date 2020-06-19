@@ -1,0 +1,37 @@
+<div id="parentContainer" style="padding:10px">
+            <oj-file-picker accept="[[acceptArr]]" 
+                            selection-mode="[[multipleStr]]" 
+                            on-oj-select='[[selectListener]]' 
+                            disabled='[[isDisabled]]'
+                            on-oj-invalid-select='[[invalidListener]]'>
+            </oj-file-picker> 
+          
+          
+            <div style="padding-top:8px"></div>
+            <div class="oj-choice-item">
+              <oj-checkboxset id="selection" aria-label="Mulitple selection" value="{{multiple}}">
+                <oj-option id="multipleSelect" value="multiple">Select Multiple</oj-option>
+              </oj-checkboxset>
+            </div>
+          
+            <div style="padding-top:8px"></div>
+            <div class="oj-choice-item">
+              <oj-checkboxset id="disabled" aria-label="Disabled" value="{{disabled}}">
+                <oj-option id="disable" value="disable">Disable</oj-option>
+              </oj-checkboxset>
+            </div>
+          
+            <oj-label for="acceptFld">Accept</oj-label>
+            <oj-text-area id="acceptFld" rows="3" value="{{acceptStr}}"></oj-text-area>
+          
+            <div style="padding-top:8px">
+              <oj-label for="selected">Selected files: </oj-label>
+              <span id="selected">
+                <oj-bind-text value="[[fileNames().join(', ')]]"></oj-bind-text>
+              </span>
+            </div>
+          
+            <div style="padding-top:8px">Invalid Message Content:
+              <oj-bind-text value="[[invalidMessage]]"></oj-bind-text>
+            </div>
+          </div>

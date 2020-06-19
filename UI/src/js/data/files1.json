@@ -1,0 +1,41 @@
+  [
+       {"attr": {"id": "home",
+  			   "name": "Home"
+  			  }
+  	 },
+  	 {"attr": {"id": "Components",
+  			   "name": "Components"
+  			  },
+  	   "children": [
+                  {
+                    "attr":{
+                      "id":"treeview",
+                      "name":"TreeView"
+                    }
+                  },
+              
+         {"attr": {"id": "upload",
+               "name": "Upload"
+              },
+              "children":[
+                {
+                  "attr":{
+                    "id":"dragDrop",
+                    "name":"dragDrop"
+                  }
+                }
+              ]
+         },
+            {
+              "attr":{
+                "id":"chart",
+                "name":"Chart"
+              }
+            }
+  		 ]
+  	 },
+        {"attr": {"id": "settings",
+               "name": "Settings"
+              }
+         }
+  ]

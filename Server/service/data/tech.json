@@ -1,0 +1,62 @@
+{
+            "author": [
+                {
+                    "label": "Danny Coward",
+                    "value": "dcoward"
+                },
+                {
+                    "label": "Herbert Schildt",
+                    "value": "hschildt"
+                },
+                {
+                    "label": "Jim Manico",
+                    "value": "jmanico"
+                },
+                {
+                    "label": "John Brock",
+                    "value": "jbrock"
+                },
+                {
+                    "label": "Maurice Naftalin",
+                    "value": "mnaftalin"
+                }
+            ],
+            "sortBy": [
+                {
+                    "label": "New and Popular",
+                    "value": "default",
+                    "direction": "ascending",
+                    "key": "ID"
+                },
+                {
+                    "label": "Price:Low to High",
+                    "value": "lh",
+                    "direction": "ascending",
+                    "key": "PRICE"
+                },
+                {
+                    "label": "Price:High to Low",
+                    "value": "hl",
+                    "direction": "descending",
+                    "key": "PRICE"
+                },
+                {
+                    "label": "Most Reviews",
+                    "value": "reviews",
+                    "direction": "descending",
+                    "key": "REVIEWS"
+                },
+                {
+                    "label": "Publication Date",
+                    "value": "date",
+                    "direction": "ascending",
+                    "key": "PUBLISH_DATE"
+                },
+                {
+                    "label": "My Favorites",
+                    "value": "favorites",
+                    "direction": "descending",
+                    "key": "StarValue"
+                }
+            ]
+        }
