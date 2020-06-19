@@ -190,7 +190,7 @@ this.performAll=function(){
           }
           data=data10;
           }
-          var data11=[];
+          
 
           if(this.currentTimeZone()!='Default'){
           var data7=[];
