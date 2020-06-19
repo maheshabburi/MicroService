@@ -146,7 +146,7 @@
     // the following series of operations are for setting up the UI according to User Preferences
     var data = [];
     
-    if(userPref.stars && userPref.stars[0]){
+    if(userPref.stars){
       console.log("stars");
     stars = userPref.stars;
   }
@@ -169,7 +169,7 @@
     }
 
 
-    if(userPref.author && userPref.author[0]){
+    if(userPref.author){
       var data1=[];
       var authors=[];
       for(var i in userPref.author){
