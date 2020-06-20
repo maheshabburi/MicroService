@@ -5,7 +5,7 @@ var pref = {
 		var part = req.params.id1;
 		var userId = req.params.id2; 	
 		console.log("userpref:",userId);
-		fs.readFile( __dirname + "/" + "pref.json", 'utf8', function (err, data) {
+		fs.readFile( __dirname + "/data/" + "pref.json", 'utf8', function (err, data) {
 			var userPrefs = JSON.parse( data );
 			/*
 			If user exists and the partition exists send data, else send empty array
@@ -28,7 +28,7 @@ var pref = {
 		var userId = req.body.userId;
 		var pref = req.body.prefs;
 		console.log("prefs:",pref);
-		fs.readFile( __dirname + "/" + "pref.json", 'utf8', function (err, data){
+		fs.readFile( __dirname + "/data/" + "pref.json", 'utf8', function (err, data){
 			var userPrefs = JSON.parse(data);
 
 			/* 
@@ -54,7 +54,7 @@ var pref = {
 				userPrefs[userId]={};
 				userPrefs[userId][part]=pref
 			}
-			fs.writeFile( __dirname + "/" + "pref.json",JSON.stringify(userPrefs,null,4),function(err){
+			fs.writeFile( __dirname + "/data/" + "pref.json",JSON.stringify(userPrefs,null,4),function(err){
 		      	if(err)
 		      		console.log(err);
 		      	});

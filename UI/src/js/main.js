@@ -51,7 +51,7 @@
 }());
 
 require(['jquery','ojs/ojkeyset','ojs/ojmodule-element-utils','ojs/ojcore','text!data/files.json','ojs/ojrouter', 'knockout', 'ojs/ojbootstrap', 'ojs/ojarraytreedataprovider',
-    'ojs/ojmodule-element', 'ojs/ojknockout', 'ojs/ojnavigationlist', 'text','jquery', 'ojs/ojoffcanvas', 'ojs/ojbutton', 'ojs/ojmodule', 'ojs/ojdefer','ojs/ojknockouttemplateutils','ojs/ojresponsiveutils'],
+    'ojs/ojmodule-element', 'ojs/ojknockout', 'ojs/ojnavigationlist', 'text','jquery', 'ojs/ojoffcanvas', 'ojs/ojbutton', 'ojs/ojmodule', 'ojs/ojdefer'],
   function($,keySet,moduleUtils,oj,files,Router, ko, Bootstrap, ArrayTreeDataProvider) {
 
     // Change default URL adapter

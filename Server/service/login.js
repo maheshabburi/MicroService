@@ -16,7 +16,7 @@ var log = {
 
   signin: function(req,res,next){
     console.log("inside signin");
-    fs.readFile( __dirname + "/" + "users.json", 'utf8', function (err, data) {
+    fs.readFile( __dirname + "/data/" + "users.json", 'utf8', function (err, data) {
       var users = JSON.parse( data );
       console.log(req.body);
       var userId = req.body.userId;
@@ -42,12 +42,12 @@ var log = {
     var uId = req.body.userId;
     var name = req.body.name;
     var pswd = req.body.password;
-    fs.readFile( __dirname + "/" + "users.json", 'utf8', function (err, data){
+    fs.readFile( __dirname + "/data/" + "users.json", 'utf8', function (err, data){
       var users = JSON.parse(data);
 
       users[uId] = {"name":name,"password":pswd};
       id=uId;
-      fs.writeFile( __dirname+"/"+"users.json",JSON.stringify(users,null,4),function(err){
+      fs.writeFile( __dirname+"/data/"+"users.json",JSON.stringify(users,null,4),function(err){
         if(err)
           console.log(err);
       });

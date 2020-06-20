@@ -10,7 +10,7 @@ var books = {
     }
     else
       name = "Books2.json";
-    fs.readFile( __dirname + "/" + name, 'utf8', function (err, data) {
+    fs.readFile( __dirname + "/data/" + name, 'utf8', function (err, data) {
       var book = JSON.parse( data );
         
       res.setHeader('Access-Control-Allow-Origin', '*');
