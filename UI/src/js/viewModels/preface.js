@@ -7,6 +7,6 @@
         var msg = "Welcome to this page !";
         this.title = params.message;
         this.description = msg;
-     }
-     return viewModel;
+    }
+    return viewModel;
   });

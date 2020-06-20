@@ -51,67 +51,66 @@
 }());
 
 require(['jquery','ojs/ojkeyset','ojs/ojmodule-element-utils','ojs/ojcore','text!data/files.json','ojs/ojrouter', 'knockout', 'ojs/ojbootstrap', 'ojs/ojarraytreedataprovider',
-    'ojs/ojmodule-element', 'ojs/ojknockout', 'ojs/ojnavigationlist', 'text','jquery', 'ojs/ojoffcanvas', 'ojs/ojbutton', 'ojs/ojmodule', 'ojs/ojdefer','ojs/ojknockouttemplateutils','ojs/ojresponsiveutils'
-  ],
+    'ojs/ojmodule-element', 'ojs/ojknockout', 'ojs/ojnavigationlist', 'text','jquery', 'ojs/ojoffcanvas', 'ojs/ojbutton', 'ojs/ojmodule', 'ojs/ojdefer','ojs/ojknockouttemplateutils','ojs/ojresponsiveutils'],
   function($,keySet,moduleUtils,oj,files,Router, ko, Bootstrap, ArrayTreeDataProvider) {
-  
+
     // Change default URL adapter
     Router.defaults['urlAdapter'] = new Router.urlParamAdapter();
 
     // to create router instance
     self.router = Router.rootInstance;
-     var routeConfig ={};
-       var init = true;
-       var jsonData = JSON.parse(files);
+    var routeConfig ={};
+    var init = true;
+    var jsonData = JSON.parse(files);
 
-// a function to build routing data from given json file
-function buildRoutingData(myId){
-            if(init){
-            routeConfig[myId.attr.id]={label:myId.attr.name,isDefault:true};
-            init=false;
-            return;
-          }
-          else{
-            if(!myId.children){
-            routeConfig[myId.attr.id]={label:myId.attr.name};
-            return;
-          }
-          }
-          for(var j in myId.children){
-            console.log(myId.children[j].attr.id);
-            buildRoutingData(myId.children[j]);
-          }
-          return;
-}
-
-      for(var i in jsonData){
-        buildRoutingData(jsonData[i]);
+    // a function to build routing data from given json file
+    function buildRoutingData(myId){
+      if(init){
+        routeConfig[myId.attr.id]={label:myId.attr.name,isDefault:true};
+        init=false;
+        return;
       }
-      routeConfig['login']={label:"login"};
-      routeConfig['signout']={label:"signout"};
-      routeConfig['signup']={label:"signup"};
-      console.log(routeConfig);
+      else{
+        if(!myId.children){
+          routeConfig[myId.attr.id]={label:myId.attr.name};
+          return;
+        }
+      }
+      for(var j in myId.children){
+        console.log(myId.children[j].attr.id);
+        buildRoutingData(myId.children[j]);
+      }
+      return;
+    }
+
+    for(var i in jsonData){
+      buildRoutingData(jsonData[i]);
+    }
+    routeConfig['login']={label:"login"};
+    routeConfig['signout']={label:"signout"};
+    routeConfig['signup']={label:"signup"};
+    console.log(routeConfig);
     self.router.configure(routeConfig);
 
-// navigation expansion based on present router State when page reloads
-var toExpand=[];
-function buildExpansionData(myId,state,parentId){
-      
+    // navigation expansion based on present router State when page reloads
+    var toExpand=[];
+    function buildExpansionData(myId,state,parentId){
+
       if(myId.attr.id==state && parentId){
-          toExpand.push(parentId.attr.id);
-          return true;
+        toExpand.push(parentId.attr.id);
+        return true;
       }
       else if(myId.children){
-          for(var j in myId.children){
-            var check = buildExpansionData(myId.children[j],state,myId);
-            if(check){
-              if(parentId){
+        for(var j in myId.children){
+          var check = buildExpansionData(myId.children[j],state,myId);
+          if(check){
+            if(parentId){
               toExpand.push(parentId.attr.id);
             }
-              return true;
-            }
+            return true;
           }
-          return false;
+        }
+        return false;
       }
       else
         return false;
@@ -123,19 +122,18 @@ function buildExpansionData(myId,state,parentId){
       self.userLoggedIn = ko.observable("N");
       self.userLogin = ko.observable('not yet logged in');
       self.menuItemAction = function (event) {
-       var selectedMenuOption = event.path[0].value;
-       console.log(selectedMenuOption);
-       if(selectedMenuOption=="sign"){
-        //console.log("userLoggedIn:",self.userLoggedIn());
-        if(self.userLoggedIn()=='Y'){
-          self.userLoggedIn("N");
-          self.userLogin("not yet logged in");
-          router.go('/signout');
+        var selectedMenuOption = event.path[0].value;
+        console.log(selectedMenuOption);
+        if(selectedMenuOption=="sign"){
+          if(self.userLoggedIn()=='Y'){
+            self.userLoggedIn("N");
+            self.userLogin("not yet logged in");
+            router.go('/signout');
+          }
+          else
+            router.go('/login');
         }
-        else
-          router.go('/login');
-       }
-     };
+      };
 
       var rState = router.stateId();
 
@@ -143,111 +141,110 @@ function buildExpansionData(myId,state,parentId){
       var t = buildExpansionData(jsonData[i],rState);
       if(t)
         break;
-        }
-        console.log("expand is:",toExpand);
+      }
+      console.log("expand is:",toExpand);
       self.expanded = new keySet.ExpandedKeySet(toExpand);
 
       // drawer toggle 
-        self.drawer =
-        {
-          displayMode: 'push',
-          selector: '#drawer',
-          content: '#content',
-          autoDismiss: 'none'
-        };
-  
-        self.toggleDrawer = function () {
-          return oj.OffcanvasUtils.toggle(self.drawer);
-        };
+      self.drawer =
+      {
+        displayMode: 'push',
+        selector: '#drawer',
+        content: '#content',
+        autoDismiss: 'none'
+      };
 
-        var routerStates=[]; // to store the present page requested before moving to login page
+      self.toggleDrawer = function () {
+        return oj.OffcanvasUtils.toggle(self.drawer);
+      };
 
-        // setting path selection from route data
-        self.moduleConfig = ko.computed(function () {
-          var name;
-          var configName = router.stateId();
-          //console.log(configName);
-          if(configName.includes("chart")) 
-            name = "chart";
-          else if(configName.includes("treeview"))
-            name = "treeview";
-          else if(configName.includes("dragDrop"))
-            name = "dragDrop";
-          else if(configName.includes("home"))
-            name = "home";
-          else if(configName=="login")
-            name = "login";
-          else if(configName=="tech"){
-             name = "tech";
-          }
-          else if(configName=="others"){
-            name="others";
-          }
-          else if(configName=="signout")
-            name = "signout";
-          else if(configName=="signup")
-            name = "signup";
-          else
-            name = "preface";
-          // set async to false 
-          var value=[name,"not yet logged in"];// default value if the following condition is not taken up
-          if(name!="login" && name!="signout" && name!="signup"){
+      var routerStates=[]; // to store the present page requested before moving to login page
+
+      // setting path selection from route data
+      self.moduleConfig = ko.computed(function () {
+        var name;
+        var configName = router.stateId();
+        if(configName.includes("chart")) 
+          name = "chart";
+        else if(configName.includes("treeview"))
+          name = "treeview";
+        else if(configName.includes("dragDrop"))
+          name = "dragDrop";
+        else if(configName.includes("home"))
+          name = "home";
+        else if(configName=="login")
+          name = "login";
+        else if(configName=="tech"){
+           name = "tech";
+        }
+        else if(configName=="others"){
+          name="others";
+        }
+        else if(configName=="signout")
+          name = "signout";
+        else if(configName=="signup")
+          name = "signup";
+        else
+          name = "preface";
+        // set async to false 
+        var value=[name,"not yet logged in"];// default value if the following condition is not taken up
+        if(name!="login" && name!="signout" && name!="signup"){
           value = function(){
-              var tmp=[];
+            var tmp=[];
             $.ajax({
-                  async: false,
-                  crossOrigin: true,          
-                  type: "GET",
-                  url: "http://localhost:3000/login",
-                  success: function(res) {
-                    console.log(res);
-                    if(res.login=="yes"){
-                    console.log("success");
-                    self.userLoggedIn("Y");
-                    tmp.push(name);
-                    tmp.push(res.userId);
-                    
-                  }
-                  else{
-                    routerStates.push(router.stateId());
-                    tmp.push("login");
-                    tmp.push("not yet logged in");
-                    router.go('/login');
-                    }
-                  },
-                  error: function(jqXHR, textStatus, errorThrown) {
-                    console.log("error: ",jqXHR.status);
-                  }
-                });
+              async: false,
+              crossOrigin: true,          
+              type: "GET",
+              url: "http://localhost:3000/login",
+              success: function(res) {
+                console.log(res);
+                if(res.login=="yes"){
+                  console.log("success");
+                  self.userLoggedIn("Y");
+                  tmp.push(name);
+                  tmp.push(res.userId);  
+                }
+                else{
+                  routerStates.push(router.stateId());
+                  tmp.push("login");
+                  tmp.push("not yet logged in");
+                  router.go('/login');
+                }
+              },
+              error: function(jqXHR, textStatus, errorThrown) {
+                console.log("error: ",jqXHR.status);
+              }
+            });
             return tmp;
-        }();
-        console.log(value);
-        self.userLogin(value[1]);
-        name = value[0];
-      }
-        
-          var presentRoute=router.stateId();
-          var size=routerStates.length;
-          if(size>=1 && presentRoute=='login'){
-            var lastState = routerStates[size-1];
-            routerStates.pop();
-          }
-          else
-            var lastState = "none";
-          var viewPath = 'views/' + name + '.html';
-          var modelPath = 'viewModels/' + name;
-          return moduleUtils.createConfig({ viewPath: viewPath,
-          viewModelPath: modelPath, params: {message: routeConfig[presentRoute].label, userId:value[1], goUrl: lastState}});
+          }();
+          console.log(value);
+          self.userLogin(value[1]);
+          name = value[0];
+        }
+      
+        var presentRoute=router.stateId();
+        var size=routerStates.length;
+        if(size>=1 && presentRoute=='login'){
+          var lastState = routerStates[size-1];
+          routerStates.pop();
+        }
+        else
+          var lastState = "none";
+        var viewPath = 'views/' + name + '.html';
+        var modelPath = 'viewModels/' + name;
+        return moduleUtils.createConfig({ viewPath: viewPath,
+        viewModelPath: modelPath, params: {message: routeConfig[presentRoute].label, userId:value[1], goUrl: lastState}});
 
-        });
-
-        // providing navigation list from given json file
-       self.navListData = new ArrayTreeDataProvider(JSON.parse(files), {keyAttributes: 'attr.id'});
-     }
-  
-    Bootstrap.whenDocumentReady().then(function() {
-      Router.sync().then(function() {
-        ko.applyBindings(new ViewModel(), document.getElementById('routing-container'));
       });
+
+      // providing navigation list from given json file
+     self.navListData = new ArrayTreeDataProvider(JSON.parse(files), {keyAttributes: 'attr.id'});
+    }
+
+    Bootstrap.whenDocumentReady().then(function() {
+    Router.sync().then(function() {
+      ko.applyBindings(new ViewModel(), document.getElementById('routing-container'));
     });
-  });
+    });
+  }
+);

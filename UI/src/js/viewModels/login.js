@@ -4,8 +4,6 @@ define(['ojs/ojarraydataprovider','ojs/ojkeyset','ojs/ojrouter','ojs/ojcore', 'k
     function loginViewModel(params) {
       
       var self = this;
-      
-      //console.log(params.goUrl);
       self.username = ko.observable("");
       self.password = ko.observable("");
       self.wrong = ko.observable(false);
@@ -18,42 +16,36 @@ define(['ojs/ojarraydataprovider','ojs/ojkeyset','ojs/ojrouter','ojs/ojcore', 'k
       
 
       self.doLogin = function doLogin(){
-       var formData = {"userId":self.username,"password":self.password};
-      $.ajax({
-              crossOrigin: true,
-              type: "POST",
-              url: "http://localhost:3000/signin",
-              data : formData,
-              success: function(res) {
-              if(res.login=="yes"){
-                console.log("uid:",res.userId);
-                
-                rootViewModel.userLogin(res.userId);
-                rootViewModel.userLoggedIn("Y");
-                console.log("success");
-                if(params.goUrl=="none"){
-                  rootViewModel.expanded = new keySet.ExpandedKeySet([]);
-                  router.go(router.defaultStateId);
-                }
-                
-                else
-                  router.go(params.goUrl);
-                                  
+        var formData = {"userId":self.username,"password":self.password};
+        $.ajax({
+          crossOrigin: true,
+          type: "POST",
+          url: "http://localhost:3000/signin",
+          data : formData,
+          success: function(res){
+            if(res.login=="yes"){
+              rootViewModel.userLogin(res.userId);
+              rootViewModel.userLoggedIn("Y");
+              console.log("success");
+              if(params.goUrl=="none"){
+                rootViewModel.expanded = new keySet.ExpandedKeySet([]);
+                router.go(router.defaultStateId);
               }
-              else{
-                console.log("false");
-                self.wrong(true);
-              }
-              
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-              console.log("error: ",jqXHR.status);
+              else
+                router.go(params.goUrl);              
             }
-              }); 
+            else{
+              console.log("false");
+              self.wrong(true);
+            }
+          },
+          error: function(jqXHR, textStatus, errorThrown){
+            console.log("error: ",jqXHR.status);
+          }
+        }); 
       }
       
-     }
-
+    }
     return loginViewModel;
   }
 );

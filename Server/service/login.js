@@ -2,7 +2,7 @@ var fs = require("fs");
 var check;
 var id="none";
 var log = {
-   login: function(req, res, next) {
+  login: function(req, res, next) {
     console.log("inside login");
     res.setHeader('Access-Control-Allow-Origin', '*');
     console.log(id);
@@ -12,33 +12,33 @@ var log = {
       check="no";
     var send = {"login":check,"userId":id};
     res.json(send);
-   },
+  },
 
-   signin: function(req,res,next){
+  signin: function(req,res,next){
     console.log("inside signin");
-      fs.readFile( __dirname + "/" + "users.json", 'utf8', function (err, data) {
+    fs.readFile( __dirname + "/" + "users.json", 'utf8', function (err, data) {
       var users = JSON.parse( data );
       console.log(req.body);
       var userId = req.body.userId;
       var password = req.body.password;
       
-        if(users[userId] && users[userId].password==password){
-          check="yes";
-          req.session.userId=userId;
-          id = userId;
-          var send = {"login":check,"userId":userId};
-          res.setHeader('Access-Control-Allow-Origin','*');
-          res.json(send);
-        }
-        else{
-          var send = {"login":"no"};
-          res.setHeader('Access-Control-Allow-Origin','*');
-          res.json(send);
-        }
+      if(users[userId] && users[userId].password==password){
+        check="yes";
+        req.session.userId=userId;
+        id = userId;
+        var send = {"login":check,"userId":userId};
+        res.setHeader('Access-Control-Allow-Origin','*');
+        res.json(send);
+      }
+      else{
+        var send = {"login":"no"};
+        res.setHeader('Access-Control-Allow-Origin','*');
+        res.json(send);
+      }
     });
-   },
+  },
 
-   signup: function(req,res,next){
+  signup: function(req,res,next){
     var uId = req.body.userId;
     var name = req.body.name;
     var pswd = req.body.password;
@@ -51,20 +51,20 @@ var log = {
         if(err)
           console.log(err);
       });
-          var send = {"login":"yes","userId":uId};
-          res.setHeader('Access-Control-Allow-Origin','*');
-          res.json(send);
+      var send = {"login":"yes","userId":uId};
+      res.setHeader('Access-Control-Allow-Origin','*');
+      res.json(send);
     });
-   },
+  },
 
-   signout: function(req,res,next){
+  signout: function(req,res,next){
     req.session.userId="";
     id="none";
     console.log("sign out:",id);
     res.setHeader('Access-Control-Allow-Origin','*');
     var send = {"login":"no"};
     res.send(send);
-   }
+  }
 
 };
 
