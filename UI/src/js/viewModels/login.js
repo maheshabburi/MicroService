@@ -1,4 +1,4 @@
-define(['ojs/ojarraydataprovider','ojs/ojkeyset','ojs/ojrouter','ojs/ojcore', 'knockout', 'jquery','ojs/ojknockout','ojs/ojlabel','ojs/ojinputtext', 'ojs/ojcheckboxset','ojs/ojselectsingle'],
+define(['ojs/ojarraydataprovider','ojs/ojkeyset','ojs/ojrouter','ojs/ojcore', 'knockout', 'jquery','ojs/ojknockout','ojs/ojlabel','ojs/ojinputtext'],
  function(ArrayDataProvider,keySet,Router,oj, ko, $) {
     self.router=Router.rootInstance;
     function loginViewModel(params) {
