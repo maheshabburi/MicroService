@@ -126,8 +126,6 @@ require(['jquery','ojs/ojkeyset','ojs/ojmodule-element-utils','ojs/ojcore','text
         console.log(selectedMenuOption);
         if(selectedMenuOption=="sign"){
           if(self.userLoggedIn()=='Y'){
-            self.userLoggedIn("N");
-            self.userLogin("not yet logged in");
             router.go('/signout');
           }
           else
