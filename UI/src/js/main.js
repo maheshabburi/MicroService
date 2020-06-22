@@ -159,7 +159,7 @@ require(['jquery','ojs/ojkeyset','ojs/ojmodule-element-utils','ojs/ojcore','text
       var routerStates=[]; // to store the present page requested before moving to login page
 
       // setting path selection from route data
-      self.moduleConfig = ko.computed(function () {
+      self.moduleConfig = ko.pureComputed(function () {
         var name;
         var configName = router.stateId();
         if(configName.includes("chart")) 
