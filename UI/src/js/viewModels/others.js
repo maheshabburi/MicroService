@@ -1,4 +1,4 @@
-define(['ojs/ojrouter','ojs/ojarraydataprovider','jquery','knockout', 'ojs/ojbootstrap', 'ojs/ojconverter-number', 'ojs/ojknockout', 'ojs/ojlistview', 'ojs/ojgauge', 'ojs/ojbutton', 'ojs/ojcheckboxset', 'ojs/ojselectcombobox'],
+define(['ojs/ojrouter','ojs/ojarraydataprovider','jquery','knockout', 'ojs/ojbootstrap', 'ojs/ojconverter-number', 'ojs/ojknockout', 'ojs/ojlistview', 'ojs/ojgauge', 'ojs/ojbutton', 'ojs/ojcheckboxset'],
   function (Router,ArrayDataProvider,$,ko, Bootstrap, NumberConverter){
     self.router = Router.rootInstance;
     function ViewModel(params) {
