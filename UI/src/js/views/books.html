@@ -1,0 +1,20 @@
+<div class="oj-hybrid-padding">
+	<div id="form1">
+            <oj-label for="combobox">Select Your Interests</oj-label>
+            <oj-combobox-many id="combobox" value="{{val}}"
+              style="max-width:20em">
+              <oj-option value="software">Software</oj-option>
+              <oj-option value="hardware">Hardware</oj-option>
+              <oj-option value="ml">Machine Learning</oj-option>
+              <oj-option value="da">Data Analysis</oj-option>
+              <oj-option value="gaming">Gaming</oj-option>
+            </oj-combobox-many>
+            <br>
+            <oj-button on-oj-action="[[savePref]]">Set these Choices</oj-button>
+            <br>
+            <br>
+            <oj-label>Check out our Books</oj-label>
+            <oj-button on-oj-action="[[goTech]]">Technical Books</oj-button>
+            <oj-button on-oj-action="[[goOthers]]">Other Books</oj-button>
+          </div>
+</div>

@@ -89,6 +89,8 @@ require(['jquery','ojs/ojkeyset','ojs/ojmodule-element-utils','ojs/ojcore','text
     routeConfig['login']={label:"login"};
     routeConfig['signout']={label:"signout"};
     routeConfig['signup']={label:"signup"};
+    routeConfig['tech']={label:"tech"};
+    routeConfig['others']={label:"others"};
     console.log(routeConfig);
     self.router.configure(routeConfig);
 

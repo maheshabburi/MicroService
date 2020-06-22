@@ -3,18 +3,14 @@
   			   "name": "Home"
   			  }
   	 },
-  	 {"attr": {"id": "book",
-  			   "name": "Book"
+  	 {"attr": {"id": "library",
+  			   "name": "Library"
   			  },
   	   "children": [
-  			 {"attr": {"id": "tech",
-  					   "name": "Technical Books"
+  			 {"attr": {"id": "books",
+  					   "name": "Books"
   					  }
-  			 },
-         {"attr": {"id": "others",
-               "name": "Other Books"
-              }
-         }
+  			 }
   		 ]
   	 },
   	 {"attr": {"id": "Components",
