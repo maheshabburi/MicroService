@@ -1,4 +1,4 @@
- define(['ojs/ojrouter','ojs/ojarraydataprovider','jquery','knockout', 'ojs/ojbootstrap', 'ojs/ojknockout', 'ojs/ojbutton', 'ojs/ojselectcombobox'],
+  define(['ojs/ojrouter','ojs/ojarraydataprovider','jquery','knockout', 'ojs/ojbootstrap', 'ojs/ojknockout','ojs/ojbutton', 'ojs/ojselectcombobox','ojs/ojgauge'],
   function (Router,ArrayDataProvider,$,ko, Bootstrap) {
     self.router = Router.rootInstance;
     function ViewModel(params) {
@@ -13,6 +13,8 @@
       }
 
       this.val=[];
+      this.value=ko.observable(10);
+      this.thresholdValues = [{ max: 33 }, { max: 67 }, {}];
 
       // to get the User specific preferences from the server
       var userPref=function(){
@@ -35,16 +37,25 @@
       console.log(userPref);
 
       if(userPref.interests)
-      this.val=userPref.interests;
+        this.val=userPref.interests;
 
+      if(userPref.percent)
+        this.value(parseInt(userPref.percent));
 
-
-      this.savePref = function(){
-        console.log(myPrefs);
+      this.handleInterestChanged = function(){
         if(this.val[0])
           myPrefs["interests"]=this.val;
         else
           myPrefs["interests"]=null;
+      }.bind(this);
+
+      this.handlePercentChanged = function(){
+        myPrefs["percent"]=this.value();
+      }.bind(this);
+
+
+      this.savePref = function(){
+        console.log(myPrefs);
         var formData = {"partition":router.stateId(),"userId":params.userId,"prefs":myPrefs};
         $.ajax({
           crossOrigin: true,          
@@ -62,7 +73,6 @@
       }.bind(this);
 
     }
-    return ViewModel;
+    return ViewModel; 
          
-  }
-);
+  });
